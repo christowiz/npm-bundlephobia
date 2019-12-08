@@ -1,3 +1,11 @@
 /**
  * Place your custom CSS styles here.
  **/
+.external-link img {
+	width: 15px;
+	height: 15px;
+	opacity: 0.5;
+}
+.external-link img:hover {
+	opacity: 1;
+}

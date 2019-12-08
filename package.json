@@ -1,0 +1,23 @@
+{
+  "name": "npm-bundlephobia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prettier.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christowiz/npm-bundlephobia.git"
+  },
+  "keywords": [],
+  "author": "Christopher Gwizdala <christopher.gwizdala@gmail.com> (https://github.com/christowiz)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christowiz/npm-bundlephobia/issues"
+  },
+  "homepage": "https://github.com/christowiz/npm-bundlephobia#readme",
+  "devDependencies": {
+    "prettier": "^1.19.1"
+  }
+}

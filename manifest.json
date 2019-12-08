@@ -1,41 +1,48 @@
 {
-  "name": "Bundlephobia NPM Chrome extension",
-  "version": "0.0.1",
-  "manifest_version": 2,
-  "description": "This extension adds bundlephobia sizes to NPM package webpage",
-  "homepage_url": "https://github.com/christowiz/chrome-ext-bundlephobia",
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
-  "default_locale": "en",
-  "options_page": "src/options_custom/index.html",
-  "page_action": {
-    "default_icon": "icons/icon19.png",
-    "default_title": "page action demo",
-    "default_popup": "src/page_action/page_action.html"
-  },
-  "permissions": [
-    "contextMenus",
-    "https://npm.im/*,https://www.npmjs.com/*,https://bundlephobia.com/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "css": [
-        "src/inject/inject.css"
-      ]
-    },
-    {
-      "matches": [
-        "https://www.google.com/*"
-      ],
-      "js": [
-        "src/inject/inject.js"
-      ]
-    }
-  ]
+	"name": "Bundlephobia NPM Chrome extension",
+	"version": "0.0.1",
+	"manifest_version": 2,
+	"description": "This extension adds bundlephobia sizes to NPM package webpage",
+	"homepage_url": "https://github.com/christowiz/chrome-ext-bundlephobia",
+	"icons": {
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
+	},
+	"default_locale": "en",
+	"options_page": "src/options_custom/index.html",
+	"page_action": {
+		"default_icon": "icons/icon19.png",
+		"default_title": "page action demo",
+		"default_popup": "src/page_action/page_action.html"
+	},
+	"permissions": [ "contextMenus", "*://npm.im/*,*://www.npmjs.com/*" ],
+	"content_scripts": [
+		{
+			"matches": [
+				"*://www.npmjs.com/package/*",
+				"*://npmjs.com/package/*",
+				"*://www.npmjs.org/package/*",
+				"*://npmjs.org/package/*",
+				"*://www.npm.im/package/*",
+				"*://npm.im/package/*"
+			],
+			"css": [ "src/inject/inject.css" ]
+		},
+		{
+			"matches": [
+				"*://www.npmjs.com/package/*",
+				"*://npmjs.com/package/*",
+				"*://www.npmjs.org/package/*",
+				"*://npmjs.org/package/*",
+				"*://www.npm.im/package/*",
+				"*://npm.im/package/*"
+			],
+			"js": [ "src/inject/utils.js", "src/inject/vars.js", "src/inject/inject.js" ]
+		}
+	],
+	"background": {
+		"scripts": [ "src/inject/utils.js", "src/inject/vars.js" ],
+		"persistent": false
+	}
 }
